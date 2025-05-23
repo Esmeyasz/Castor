@@ -3,7 +3,10 @@ curl -X POST http://localhost/CastorFormatado/index.php \
 -d '{
     "nome": "Lucas Souza",
     "email": "lucasSZ@gmail.com",
-    "endereco": "Rua Josias Tavares, 2026",
+    "endereco": "Rua babuino cor de rosa, 2026",
     "telefone": "40028922",
     "senha": "senha"
 }'
+###
+
+GET http://localhost/CastorFormatado/index.php

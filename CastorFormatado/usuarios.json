@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "nome": "carlos",
+        "email": "josias@gmail.com",
+        "telefone": "(22) 94002-8922",
+        "idade": "23",
+        "genero": "Masculino",
+        "tipo": "VIP",
+        "endereco": {
+            "rua": "padre eustaquidawdas",
+            "numero": "410",
+            "cidade": "NY",
+            "estado": "USa"
+        },
+        "promocoes": false,
+        "comentarios": "sus"
+    },
+    {
+        "id": 2,
+        "nome": "Lucas Souza",
+        "email": "lucasSZ@gmail.com",
+        "endereco": "Rua babuino cor de rosa, 2026",
+        "telefone": "40028922",
+        "senha": "$2y$10$rBhp5axwSzyCjMsKGV4iSOe960ktAaVFLoBeKvQTIZomD43x2WMMC"
+    }
+]

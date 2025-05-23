@@ -1,19 +1,24 @@
 <?php
+require_once 'utils.php';
+
 $datafile = 'usuarios.json';
 $method = $_SERVER['REQUEST_METHOD'];
 
-function carregarUsuarios() {
-    global $datafile;
-    return file_exists($datafile) ? json_decode(file_get_contents($datafile), true) ?? [] : [];
-}
-
-function salvarUsuarios($usuarios) {
-    global $datafile;
-    file_put_contents($datafile, json_encode($usuarios, JSON_PRETTY_PRINT));
-}
-
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
+
+if ($method === 'GET') {
+    $usuarios = carregarUsuarios();
+
+    // Remove a senha de cada usuário antes de retornar
+    $usuariosSemSenha = array_map(function ($usuario) {
+        unset($usuario['senha']);
+        return $usuario;
+    }, $usuarios);
+
+    echo json_encode($usuariosSemSenha);
+    exit;
+}
 
 if ($method === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
@@ -27,6 +32,12 @@ if ($method === 'POST') {
     ) {
         http_response_code(400);
         echo json_encode(['error' => 'Todos os campos devem ser preenchidos']);
+        exit;
+    }
+
+    if (emailExiste($input['email'])) {
+        http_response_code(409);
+        echo json_encode(['error' => 'E-mail já cadastrado']);
         exit;
     }
 
