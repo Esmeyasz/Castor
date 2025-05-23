@@ -1,0 +1,9 @@
+curl -X POST http://localhost/CastorFormatado/index.php \
+-H "Content-Type: application/json" \
+-d '{
+    "nome": "Lucas Souza",
+    "email": "lucasSZ@gmail.com",
+    "endereco": "Rua Josias Tavares, 2026",
+    "telefone": "40028922",
+    "senha": "senha"
+}'
